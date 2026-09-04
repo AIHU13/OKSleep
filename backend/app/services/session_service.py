@@ -170,7 +170,37 @@ def demo_next_day(conn: sqlite3.Connection) -> dict:
 # 聚合视图（AppState）
 # --------------------------------------------------------------------------
 
+def maybe_reset_public(conn: sqlite3.Connection) -> None:
+    """公开演示模式：新访客（无进行中会话）自动重置演示数据为初始状态。"""
+    if not settings.public_demo:
+        return
+    if active_session(conn):
+        return  # 有进行中的会话：不打扰当前演示者
+    from ..models.deep_night import DEEP_NIGHT_PLANS_TABLE, PLAN_TASKS_TABLE
+    from ..models.miss import MISS_TABLE
+    from ..models.shop import SHOP_ORDER_TABLE
+    from ..models.work import FOOD_ORDERS_TABLE, WORK_TASKS_TABLE
+
+    tables = [
+        SLEEP_SESSION_TABLE,
+        REWARD_TABLE,
+        MISS_TABLE,
+        DEEP_NIGHT_PLANS_TABLE,
+        PLAN_TASKS_TABLE,
+        SHOP_ORDER_TABLE,
+        FOOD_ORDERS_TABLE,
+        WORK_TASKS_TABLE,
+    ]
+    checks = " + ".join(f"(SELECT COUNT(*) FROM {t})" for t in tables)
+    row = query_one(conn, f"SELECT ({checks}) AS total")
+    if row and (row["total"] or 0) > 0:
+        from ..db.init_db import reset_demo_state
+
+        reset_demo_state(conn)
+
+
 def current_view(conn: sqlite3.Connection) -> dict:
+    maybe_reset_public(conn)  # 公开模式：新访客自动回到初始演示状态
     profile = get_profile(conn)
     now = effective_now(conn)
     phase = sm.phase_of(profile, now)

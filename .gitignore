@@ -45,3 +45,7 @@ frontend/vite.config.d.ts
 # 本地项目文档（若需公开请移入 docs 并调整）
 保密-项目开发文档/
 
+
+# 本地工具（cloudflared 等，不入库）
+tools/
+

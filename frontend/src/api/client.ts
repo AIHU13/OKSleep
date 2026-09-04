@@ -1,6 +1,8 @@
 /** 极简 REST 客户端（无第三方依赖，保证稳定）。 */
 
-const BASE = (import.meta.env.VITE_API_BASE as string | undefined) ?? "http://127.0.0.1:8000";
+// 同源部署：默认相对路径（生产由 FastAPI 托管 /api；开发由 Vite 代理到 8000）
+// 需要独立后端地址时用环境变量 VITE_API_BASE 覆盖（如 http://127.0.0.1:8000）
+const BASE = (import.meta.env.VITE_API_BASE as string | undefined)?.trim() ?? "";
 
 export class ApiError extends Error {
   code: string;

@@ -41,6 +41,11 @@ class Settings(BaseSettings):
     db_path: Path = DEFAULT_DB_PATH
     demo_user_id: int = 1
 
+    # ---- 对外公开演示（OKSLEEP_PUBLIC_DEMO=1）----
+    # 公开模式下：每次新的访客（无进行中会话）会自动把演示数据重置为初始状态，
+    # 避免他人操作污染演示内容；请保持 llm_mode=demo，禁止暴露任何 Key。
+    public_demo: bool = False
+
     # ---- CORS ----
     cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173"
 
