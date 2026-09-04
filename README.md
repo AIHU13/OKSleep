@@ -1,22 +1,32 @@
+# SleepFlow · A 30-Minute Bedtime Companion Agent
 
+<table>
+<tr>
+<td width="48%" valign="top">
 
+<video src="https://github.com/user-attachments/assets/7b2abd89-5b98-4963-8653-ff1143dde99d" controls width="100%"></video>
 
+</td>
 
-# SleepFlow · A 30-Minute Bedtime Companion Agent (MVP / Demo)
+<td width="52%" valign="top">
 
-https://github.com/user-attachments/assets/7b2abd89-5b98-4963-8653-ff1143dde99d
+### Healthier routines start here
 
-**Healthier routines start here — SleepFlow gently walks you from "one more video" to "good night."**
+SleepFlow gently walks you from **"one more video"** to **"good night."**
 
 A bedtime agent built for young professionals: it opens a **30-minute wind-down window** before your target
 sleep time, uses **gentle multi-stage interventions**, hands repetitive late-night work to **deep-night
 Agents**, and closes the loop with **Sleep Coins / streaks** the next morning.
 
-> MVP demo mode: everything runs in the browser with Mock device data. The LLM layer keeps an
+> **MVP demo mode:** everything runs in the browser with Mock device data. The LLM layer keeps an
 > **OpenAI-compatible interface** (no API key needed in demo mode) and falls back to rule-based copy
 > automatically.
 
-<br clear="left"/>
+</td>
+</tr>
+</table>
+
+<br>
 
 [中文文档（Chinese README）](./README.zh-CN.md)
 
