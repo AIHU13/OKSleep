@@ -7,6 +7,14 @@ venv/
 
 # 环境变量（含 API Key，禁止入库）
 .env
+.env.local
+.env.*.local
+
+# 密钥 / 证书类文件
+*.pem
+*.key
+*.pfx
+secrets/
 
 # Node
 node_modules/
