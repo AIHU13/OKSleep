@@ -48,13 +48,17 @@ Agents**, and closes the loop with **Sleep Coins / streaks** the next morning.
 
 ## 2. Feature Showcase
 
-A compressed demo video (≈ 2 MB) and two screenshots are committed under `docs/media/`.
-Click the video cover to play it in GitHub's native MP4 player, or open the file directly:
+The auto-playing **GIF preview** below is embedded directly and loops in-line, so it plays right on the
+GitHub page. It is a 14s clip of `docs/media/demo.mp4` (compressed to ≈ 2 MB); click the link for the
+full video in GitHub's native player:
 [**`docs/media/demo.mp4`**](https://github.com/AIHU13/SleepFlow/blob/main/docs/media/demo.mp4).
 
-| ▶️ Demo video | 🏠 Home | 🌙 Deep-Night Plan |
-| :---: | :---: | :---: |
-| [<img src="docs/media/screens-home.png" width="200" alt="Click to play demo.mp4" />](https://github.com/AIHU13/SleepFlow/blob/main/docs/media/demo.mp4)<br/>*Click the cover to play* | <img src="docs/media/screens-home.png" width="200" alt="Home" /> | <img src="docs/media/screens-deepnight.png" width="200" alt="Deep-Night Plan" /> |
+<p align="center">
+  <a href="https://github.com/AIHU13/SleepFlow/blob/main/docs/media/demo.mp4"><img src="docs/media/demo-preview.gif" width="246" alt="Demo video (auto-play preview)" title="Click for full demo.mp4" /></a>
+  <img src="docs/media/screens-home.png" width="246" alt="Home" />
+  <img src="docs/media/screens-deepnight.png" width="246" alt="Deep-Night Plan" />
+</p>
+<p align="center"><i>▶ Demo preview · 🏠 Home · 🌙 Deep-Night Plan — click the left GIF for the full video</i></p>
 
 ---
 
@@ -213,8 +217,8 @@ Browser (React UI) → REST → FastAPI → Session Service / Rule Engine / SQLi
 
 ### License
 
-This project's code is open-sourced under the MIT License, while the author reserves all rights for
-**commercial closed-source versions** of the code (本项目代码基于 MIT 协议开源，作者同时保留商业闭源版本的全部权利).
+This project's code is open-sourced under the **MIT License**, while the author reserves all rights for
+**commercial closed-source versions** of the code. See [LICENSE](./LICENSE) for details.
 
 Product names (Disney, HUAWEI, etc.) appear only as **mock shop items** to demonstrate the incentive
 loop and are not affiliated with their owners.

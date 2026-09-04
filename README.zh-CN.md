@@ -46,13 +46,17 @@
 
 ## 2. 功能展示
 
-压缩后的演示视频（约 2 MB）与两张截图已随仓库提交于 `docs/media/`。
-点击视频封面即可在 GitHub 原生播放器内播放，或直接打开文件：
+下方为**自动循环播放的 GIF 预览**，内嵌于页面、打开即可直接观看（无需点击播放）。
+它截取自完整演示视频 `docs/media/demo.mp4`（已压缩至约 2 MB，49 秒）；
+需要高清完整版本时，点击链接在 GitHub 原生播放器中打开：
 [**`docs/media/demo.mp4`**](https://github.com/AIHU13/SleepFlow/blob/main/docs/media/demo.mp4)。
 
-| ▶️ 演示视频 | 🏠 首页 | 🌙 深夜计划 |
-| :---: | :---: | :---: |
-| [<img src="docs/media/screens-home.png" width="200" alt="点击播放 demo.mp4" />](https://github.com/AIHU13/SleepFlow/blob/main/docs/media/demo.mp4)<br/>*点击封面播放* | <img src="docs/media/screens-home.png" width="200" alt="首页" /> | <img src="docs/media/screens-deepnight.png" width="200" alt="深夜计划" /> |
+<p align="center">
+  <a href="https://github.com/AIHU13/SleepFlow/blob/main/docs/media/demo.mp4"><img src="docs/media/demo-preview.gif" width="246" alt="演示视频（自动播放预览）" title="点击打开完整 demo.mp4" /></a>
+  <img src="docs/media/screens-home.png" width="246" alt="首页" />
+  <img src="docs/media/screens-deepnight.png" width="246" alt="深夜计划" />
+</p>
+<p align="center"><i>▶ 演示视频（自动播放）· 🏠 首页 · 🌙 深夜计划 —— 点击左侧预览打开完整视频</i></p>
 
 ---
 
@@ -209,9 +213,9 @@ Browser（React UI）→ REST → FastAPI → Session Service / Rule Engine / SQ
 - 刷新页面 Session 由后端恢复不丢失；历史（含助眠失败记录）可持久化
 - 配置 Key 后 LLM 可实时个性化；未配置 Key 时 Demo 仍完整运行
 
-### License / 声明
+### 许可声明
 
-本项目代码基于 **MIT 协议开源**，作者同时保留**商业闭源版本的全部权利**
-(This project's code is open-sourced under the MIT License, while the author reserves all rights for commercial closed-source versions).
+本项目代码基于 **MIT 协议开源**，作者同时保留**商业闭源版本的全部权利**。
+许可全文见仓库根目录 `LICENSE` 文件。
 
 文中出现的品牌名（迪士尼、华为等）仅作为**积分兑换区的 Mock 商品**用于演示激励闭环，与各品牌方无关。
