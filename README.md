@@ -1,6 +1,10 @@
+
+
+
+
 # SleepFlow · A 30-Minute Bedtime Companion Agent (MVP / Demo)
 
-<img align="left" src="docs/media/cover-home.png" width="220" alt="SleepFlow Home" />
+https://github.com/user-attachments/assets/7b2abd89-5b98-4963-8653-ff1143dde99d
 
 **Healthier routines start here — SleepFlow gently walks you from "one more video" to "good night."**
 
