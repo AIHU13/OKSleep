@@ -78,6 +78,46 @@ async def docs_local_only(request: Request, call_next):
     return await call_next(request)
 
 
+@app.middleware("http")
+async def access_gate(request: Request, call_next):
+    """访问口令：OKSLEEP_DEMO_PASSWORD 非空时启用认证（未认证一律 401）。
+
+    - Basic Auth：Authorization: Basic base64("demo:<口令>")（浏览器弹窗或 URL 内嵌）
+    - 查询参数：?token=<口令>（便于 API/脚本直连）
+    """
+    password = settings.demo_password
+    if not password:
+        return await call_next(request)
+
+    ok = False
+    authz = request.headers.get("authorization", "")
+    if authz.lower().startswith("basic "):
+        try:
+            import base64
+
+            raw = base64.b64decode(authz[6:]).decode("utf-8")
+            _user, _, pw = raw.partition(":")
+            if pw:
+                import secrets
+
+                ok = secrets.compare_digest(pw, password)
+        except Exception:
+            ok = False
+    if not ok:
+        token = request.query_params.get("token")
+        if token:
+            import secrets
+
+            ok = secrets.compare_digest(token, password)
+    if not ok:
+        return JSONResponse(
+            status_code=401,
+            content={"detail": "unauthorized: missing or invalid access password"},
+            headers={"WWW-Authenticate": 'Basic realm="OKSleep Demo"'},
+        )
+    return await call_next(request)
+
+
 @app.exception_handler(RuleError)
 async def rule_error_handler(request: Request, exc: RuleError):
     return JSONResponse(

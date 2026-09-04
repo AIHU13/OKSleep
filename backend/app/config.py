@@ -42,9 +42,14 @@ class Settings(BaseSettings):
     demo_user_id: int = 1
 
     # ---- 对外公开演示（OKSLEEP_PUBLIC_DEMO=1）----
-    # 公开模式下：每次新的访客（无进行中会话）会自动把演示数据重置为初始状态，
-    # 避免他人操作污染演示内容；请保持 llm_mode=demo，禁止暴露任何 Key。
+    # 旧模式：每次新访客自动重置（易造成“每次归0”观感），如需共享状态请勿开启。
     public_demo: bool = False
+
+    # ---- 访问口令（OKSLEEP_DEMO_PASSWORD）----
+    # 非空时启用认证：未带口令一律 401。
+    # 支持：Basic Auth（推荐，浏览器弹窗/URL 内嵌 user:pass）或 ?token=<口令>（供 API/脚本直连）。
+    # 设为空则完全开放（仅限本地开发使用）。
+    demo_password: str = ""
 
     # ---- CORS ----
     cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173"
