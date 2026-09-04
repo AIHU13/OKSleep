@@ -48,12 +48,13 @@ Agents**, and closes the loop with **Sleep Coins / streaks** the next morning.
 
 ## 2. Feature Showcase
 
-Media files are committed under `docs/media/` (`demo.mp4`, `screens-home.png`, `screens-deepnight.png`).
-Click the cover below to play the demo video — GitHub opens MP4 in its native preview player.
+A compressed demo video (≈ 2 MB) and two screenshots are committed under `docs/media/`.
+Click the video cover to play it in GitHub's native MP4 player, or open the file directly:
+[**`docs/media/demo.mp4`**](https://github.com/AIHU13/SleepFlow/blob/main/docs/media/demo.mp4).
 
-| ▶️ Demo video | Screens |
-| :---: | :---: |
-| [<img src="docs/media/screens-home.png" width="240" alt="Click to play demo.mp4" />](docs/media/demo.mp4)<br/>Click the cover to play `docs/media/demo.mp4` | <img src="docs/media/screens-home.png" width="150" alt="Home" /> <img src="docs/media/screens-deepnight.png" width="150" alt="Deep-Night Plan" /> |
+| ▶️ Demo video | 🏠 Home | 🌙 Deep-Night Plan |
+| :---: | :---: | :---: |
+| [<img src="docs/media/screens-home.png" width="200" alt="Click to play demo.mp4" />](https://github.com/AIHU13/SleepFlow/blob/main/docs/media/demo.mp4)<br/>*Click the cover to play* | <img src="docs/media/screens-home.png" width="200" alt="Home" /> | <img src="docs/media/screens-deepnight.png" width="200" alt="Deep-Night Plan" /> |
 
 ---
 

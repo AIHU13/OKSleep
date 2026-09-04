@@ -46,12 +46,13 @@
 
 ## 2. 功能展示
 
-展示媒体已随仓库提交于 `docs/media/`（`demo.mp4`、`screens-home.png`、`screens-deepnight.png`）。
-点击下方封面即可播放演示视频 —— GitHub 会用原生预览打开 MP4。
+压缩后的演示视频（约 2 MB）与两张截图已随仓库提交于 `docs/media/`。
+点击视频封面即可在 GitHub 原生播放器内播放，或直接打开文件：
+[**`docs/media/demo.mp4`**](https://github.com/AIHU13/SleepFlow/blob/main/docs/media/demo.mp4)。
 
-| ▶️ 演示视频 | 截图区 |
-| :---: | :---: |
-| [<img src="docs/media/screens-home.png" width="240" alt="点击播放 demo.mp4" />](docs/media/demo.mp4)<br/>点击封面播放 `docs/media/demo.mp4` | <img src="docs/media/screens-home.png" width="150" alt="首页" /> <img src="docs/media/screens-deepnight.png" width="150" alt="深夜计划" /> |
+| ▶️ 演示视频 | 🏠 首页 | 🌙 深夜计划 |
+| :---: | :---: | :---: |
+| [<img src="docs/media/screens-home.png" width="200" alt="点击播放 demo.mp4" />](https://github.com/AIHU13/SleepFlow/blob/main/docs/media/demo.mp4)<br/>*点击封面播放* | <img src="docs/media/screens-home.png" width="200" alt="首页" /> | <img src="docs/media/screens-deepnight.png" width="200" alt="深夜计划" /> |
 
 ---
 
