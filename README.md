@@ -48,14 +48,12 @@ Agents**, and closes the loop with **Sleep Coins / streaks** the next morning.
 
 ## 2. Feature Showcase
 
-> Placeholder media below — replace the files under `docs/media/` with your own captures:
-> - `demo.mp4` – screen recording of the full demo loop (a sample can be copied from `frontend/public/videos/sleep.mp4`)
-> - `screens-home.png` – Home page capture
-> - `screens-deepnight.png` – Deep-Night Plan configuration capture
+Media files are committed under `docs/media/` (`demo.mp4`, `screens-home.png`, `screens-deepnight.png`).
+Click the cover below to play the demo video — GitHub opens MP4 in its native preview player.
 
-| Video demo | Screens |
+| ▶️ Demo video | Screens |
 | :---: | :---: |
-| <video src="docs/media/demo.mp4" width="260" controls></video><br/>*(placeholder: copy `frontend/public/videos/sleep.mp4` to `docs/media/demo.mp4` to preview)* | <img src="docs/media/screens-home.png" width="150" alt="Home" /> <img src="docs/media/screens-deepnight.png" width="150" alt="Deep-Night Plan" /> |
+| [<img src="docs/media/screens-home.png" width="240" alt="Click to play demo.mp4" />](docs/media/demo.mp4)<br/>Click the cover to play `docs/media/demo.mp4` | <img src="docs/media/screens-home.png" width="150" alt="Home" /> <img src="docs/media/screens-deepnight.png" width="150" alt="Deep-Night Plan" /> |
 
 ---
 
@@ -214,5 +212,8 @@ Browser (React UI) → REST → FastAPI → Session Service / Rule Engine / SQLi
 
 ### License
 
-Demo / MVP for interview & showcase purposes. Product names (Disney, HUAWEI, etc.) appear only as **mock
-shop items** to demonstrate the incentive loop and are not affiliated with their owners.
+This project's code is open-sourced under the MIT License, while the author reserves all rights for
+**commercial closed-source versions** of the code (本项目代码基于 MIT 协议开源，作者同时保留商业闭源版本的全部权利).
+
+Product names (Disney, HUAWEI, etc.) appear only as **mock shop items** to demonstrate the incentive
+loop and are not affiliated with their owners.

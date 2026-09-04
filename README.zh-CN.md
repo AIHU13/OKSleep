@@ -46,14 +46,12 @@
 
 ## 2. 功能展示
 
-> 以下为占位媒体，请将截图/录屏放入 `docs/media/` 目录后展示：
-> - `demo.mp4` —— 完整演示录屏（可临时复制 `frontend/public/videos/sleep.mp4` 预览）
-> - `screens-home.png` —— 首页截图
-> - `screens-deepnight.png` —— 深夜计划配置截图
+展示媒体已随仓库提交于 `docs/media/`（`demo.mp4`、`screens-home.png`、`screens-deepnight.png`）。
+点击下方封面即可播放演示视频 —— GitHub 会用原生预览打开 MP4。
 
-| 视频演示 | 截图区 |
+| ▶️ 演示视频 | 截图区 |
 | :---: | :---: |
-| <video src="docs/media/demo.mp4" width="260" controls></video><br/>*占位：将 `frontend/public/videos/sleep.mp4` 复制到 `docs/media/demo.mp4` 即可预览* | <img src="docs/media/screens-home.png" width="150" alt="首页" /> <img src="docs/media/screens-deepnight.png" width="150" alt="深夜计划" /> |
+| [<img src="docs/media/screens-home.png" width="240" alt="点击播放 demo.mp4" />](docs/media/demo.mp4)<br/>点击封面播放 `docs/media/demo.mp4` | <img src="docs/media/screens-home.png" width="150" alt="首页" /> <img src="docs/media/screens-deepnight.png" width="150" alt="深夜计划" /> |
 
 ---
 
@@ -212,5 +210,7 @@ Browser（React UI）→ REST → FastAPI → Session Service / Rule Engine / SQ
 
 ### License / 声明
 
-本仓库为面试/展示用途的 MVP Demo。文中出现的品牌名（迪士尼、华为等）仅作为**积分兑换区的
-Mock 商品**用于演示激励闭环，与各品牌方无关。
+本项目代码基于 **MIT 协议开源**，作者同时保留**商业闭源版本的全部权利**
+(This project's code is open-sourced under the MIT License, while the author reserves all rights for commercial closed-source versions).
+
+文中出现的品牌名（迪士尼、华为等）仅作为**积分兑换区的 Mock 商品**用于演示激励闭环，与各品牌方无关。
