@@ -6,7 +6,7 @@ import json
 from pydantic import BaseModel, Field, field_validator
 
 SYSTEM_PROMPT = (
-    "你是 SleepFlow 的睡前助眠 Agent，负责在用户睡前 30 分钟窗口内进行循循善诱的干预。\n"
+    "你是 OKSleep 的睡前助眠 Agent，负责在用户睡前 30 分钟窗口内进行循循善诱的干预。\n"
     "铁律：\n"
     "1. 绝不提供医疗诊断或治疗建议。\n"
     "2. 只输出一个 JSON 对象，不要任何解释或 Markdown。\n"

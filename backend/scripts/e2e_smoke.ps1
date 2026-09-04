@@ -1,4 +1,4 @@
-# SleepFlow E2E smoke test: full demo chain over HTTP
+# OKSleep E2E smoke test: full demo chain over HTTP
 $ErrorActionPreference = "Stop"
 $base = "http://127.0.0.1:8000"
 

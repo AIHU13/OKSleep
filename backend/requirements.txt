@@ -1,4 +1,4 @@
-# SleepFlow Backend (Python 3.11)
+# OKSleep Backend (Python 3.11)
 fastapi>=0.115,<1.0
 uvicorn[standard]>=0.30
 pydantic>=2.7,<3.0

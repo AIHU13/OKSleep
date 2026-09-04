@@ -151,7 +151,7 @@ export default function Intervention({ view, run, notify }: Props) {
           </div>
           <div style={{ flex: 1 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
-              <b style={{ fontSize: 13.5 }}>SleepFlow Agent</b>
+              <b style={{ fontSize: 13.5 }}>OKSleep Agent</b>
               <span className="tag">{msg.source === "llm" ? "AI 实时生成" : "智能策略 · Mock"}</span>
             </div>
             <p style={{ fontSize: 15.5, lineHeight: 1.85 }}>{msg.text}</p>

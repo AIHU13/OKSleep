@@ -11,7 +11,7 @@ export default function TopBar({ view }: { view: AppState }) {
         <div className="brand-logo">🌙</div>
         <div>
           <div className="brand-name">
-            Sleep<span className="grad-text">Flow</span>
+            OK<span className="grad-text">Sleep</span>
           </div>
           <div className="brand-sub">睡前 30 分钟智能助眠 Agent</div>
         </div>

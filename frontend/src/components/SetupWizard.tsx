@@ -74,7 +74,7 @@ export default function SetupWizard({ view, run, onDone, notify }: Props) {
       <div className="modal-box" style={{ maxWidth: 440 }}>
         <div style={{ textAlign: "center" }}>
           <div style={{ fontSize: 46 }}>🌙</div>
-          <h2 style={{ fontSize: 21, fontWeight: 800, marginTop: 8 }}>欢迎使用 SleepFlow</h2>
+          <h2 style={{ fontSize: 21, fontWeight: 800, marginTop: 8 }}>欢迎使用 OKSleep</h2>
           <p className="muted" style={{ marginTop: 4 }}>
             首次使用，先完成基础配置（可随时在首页修改）
           </p>
@@ -129,7 +129,7 @@ export default function SetupWizard({ view, run, onDone, notify }: Props) {
 
         <div style={{ marginTop: 20 }}>
           <button className="btn block" disabled={busy} onClick={() => void finish()}>
-            {busy ? "● 保存中…" : "🚀 保存配置，进入 SleepFlow"}
+            {busy ? "● 保存中…" : "🚀 保存配置，进入 OKSleep"}
           </button>
         </div>
         <p style={{ textAlign: "center", marginTop: 10 }}>

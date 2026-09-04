@@ -184,7 +184,7 @@ export default function PhoneSim({ onExit, onHandoff, notify }: Props) {
           }}
         >
           <span>{nowTime()}</span>
-          <span>📶 SleepFlow 守护中 · 🔋 87%</span>
+          <span>📶 OKSleep 守护中 · 🔋 87%</span>
         </div>
 
         {/* 顶部返回 */}
@@ -204,7 +204,7 @@ export default function PhoneSim({ onExit, onHandoff, notify }: Props) {
             cursor: "pointer",
           }}
         >
-          ‹ SleepFlow 主界面
+          ‹ OKSleep 主界面
         </button>
 
         {/* 演示推进 */}
@@ -231,7 +231,7 @@ export default function PhoneSim({ onExit, onHandoff, notify }: Props) {
               <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
                 <span style={{ fontSize: 28 }}>🌙</span>
                 <div>
-                  <b style={{ fontSize: 15 }}>SleepFlow 提醒：该睡啦</b>
+                  <b style={{ fontSize: 15 }}>OKSleep 提醒：该睡啦</b>
                   <p style={{ fontSize: 12.5, opacity: .9, marginTop: 5, lineHeight: 1.7 }}>
                     已到你的睡前 30 分钟窗口（目标 23:30 入睡）。视频已暂停，
                     短视频只会让你越刷越清醒哦。
@@ -584,7 +584,7 @@ function ShortsPane(props: ShortsPaneProps) {
           whiteSpace: "nowrap",
         }}
       >
-        {isHealth ? "😴 SleepFlow · 健康睡眠内容" : "23:00 · SleepFlow 睡前监测中"}
+        {isHealth ? "😴 OKSleep · 健康睡眠内容" : "23:00 · OKSleep 睡前监测中"}
       </div>
 
       {/* 右侧互动栏 */}
@@ -613,7 +613,7 @@ function ShortsPane(props: ShortsPaneProps) {
           <>
             <div style={{ fontSize: 17, fontWeight: 800 }}>晚安 · 深睡引导</div>
             <p style={{ fontSize: 12.5, opacity: .9, marginTop: 6, lineHeight: 1.7 }}>
-              呼吸放松 · 无算法刺激 · 来自 SleepFlow 健康睡眠频道
+              呼吸放松 · 无算法刺激 · 来自 OKSleep 健康睡眠频道
             </p>
           </>
         ) : (
@@ -671,7 +671,7 @@ function PermOverlay({ onAllow, notify }: { onAllow: () => void; notify: (m: str
       <div style={{ width: "100%", maxWidth: 380 }}>
         <div style={{ textAlign: "center" }}>
           <div style={{ fontSize: 46 }}>🌙</div>
-          <h2 style={{ fontSize: 21, fontWeight: 800, marginTop: 10 }}>SleepFlow 需要以下权限</h2>
+          <h2 style={{ fontSize: 21, fontWeight: 800, marginTop: 10 }}>OKSleep 需要以下权限</h2>
           <p className="muted" style={{ marginTop: 6 }}>用于在睡前自动接管播放与按时提醒（演示用，数据均保存在本地）</p>
         </div>
         <div style={{ marginTop: 18, display: "grid", gap: 10 }}>

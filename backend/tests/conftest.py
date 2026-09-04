@@ -13,7 +13,7 @@ from app.db.init_db import init_db
 
 @pytest.fixture
 def conn(tmp_path):
-    db_path = tmp_path / "sleepflow_test.db"
+    db_path = tmp_path / "oksleep_test.db"
     c = init_db(db_path)
     yield c
     c.close()

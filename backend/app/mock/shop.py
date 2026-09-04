@@ -25,7 +25,7 @@ SHOP_PRODUCTS: list[dict] = [
     {
         "id": 3,
         "name": "助眠香薰礼盒 · 薰衣草",
-        "brand": "SleepFlow × 香氛",
+        "brand": "OKSleep × 香氛",
         "desc": "睡前 15 分钟点燃，营造安稳氛围",
         "icon": "🕯️",
         "price_coins": 320,
@@ -35,7 +35,7 @@ SHOP_PRODUCTS: list[dict] = [
     {
         "id": 4,
         "name": "星夜记忆枕",
-        "brand": "SleepFlow 甄选",
+        "brand": "OKSleep 甄选",
         "desc": "慢回弹护颈枕，好眠从好枕头开始",
         "icon": "🛌",
         "price_coins": 680,

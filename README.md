@@ -1,4 +1,4 @@
-# SleepFlow · A 30-Minute Bedtime Companion Agent
+# OKSleep · A 30-Minute Bedtime Companion Agent
 
 <table>
 <tr>
@@ -12,7 +12,7 @@
 
 ### Healthier routines start here
 
-SleepFlow gently walks you from **"one more video"** to **"good night."**
+OKSleep gently walks you from **"one more video"** to **"good night."**
 
 A bedtime agent built for young professionals: it opens a **30-minute wind-down window** before your target
 sleep time, uses **gentle multi-stage interventions**, hands repetitive late-night work to **deep-night
@@ -36,7 +36,7 @@ Agents**, and closes the loop with **Sleep Coins / streaks** the next morning.
 
 ### What it does
 
-| Stage | What SleepFlow does |
+| Stage | What OKSleep does |
 | --- | --- |
 | 🧭 **Routine setup** | First-run wizard configures target bedtime / wake time and a draft "Deep-Night Plan" |
 | 📱 **Phone scenario** | A fullscreen mock phone shows a TikTok-style feed (`tiktok.mp4`); permission dialogs are simulated (notifications / media control / background monitor) |
@@ -65,10 +65,10 @@ Agents**, and closes the loop with **Sleep Coins / streaks** the next morning.
 The auto-playing **GIF preview** below is embedded directly and loops in-line, so it plays right on the
 GitHub page. It is a 14s clip of `docs/media/demo.mp4` (compressed to ≈ 2 MB); click the link for the
 full video in GitHub's native player:
-[**`docs/media/demo.mp4`**](https://github.com/AIHU13/SleepFlow/blob/main/docs/media/demo.mp4).
+[**`docs/media/demo.mp4`**](https://github.com/AIHU13/OKSleep/blob/main/docs/media/demo.mp4).
 
 <p align="center">
-  <a href="https://github.com/AIHU13/SleepFlow/blob/main/docs/media/demo.mp4"><img src="docs/media/demo-preview.gif" width="246" alt="Demo video (auto-play preview)" title="Click for full demo.mp4" /></a>
+  <a href="https://github.com/AIHU13/OKSleep/blob/main/docs/media/demo.mp4"><img src="docs/media/demo-preview.gif" width="246" alt="Demo video (auto-play preview)" title="Click for full demo.mp4" /></a>
   <img src="docs/media/screens-home.png" width="246" alt="Home" />
   <img src="docs/media/screens-deepnight.png" width="246" alt="Deep-Night Plan" />
 </p>
@@ -82,14 +82,14 @@ full video in GitHub's native player:
 
 | Dependency | Version | Notes |
 | --- | --- | --- |
-| Python | 3.11 | dedicated conda env `sleepflow` created for this project |
+| Python | 3.11 | dedicated conda env `oksleep` created for this project |
 | Node.js | ≥ 18 (tested on 24) | frontend build & dev server |
 | npm | ≥ 10 | on Windows use `npm.cmd` (`.ps1` shims may be blocked) |
 
 ```bash
 # 1) Backend deps (create the env first if it does not exist)
-conda create -n sleepflow python=3.11 -y
-conda activate sleepflow
+conda create -n oksleep python=3.11 -y
+conda activate oksleep
 pip install -r backend/requirements.txt
 
 # 2) Frontend deps
@@ -102,12 +102,12 @@ npm install
 **Terminal 1 — FastAPI backend :8000**
 
 ```bash
-conda activate sleepflow
+conda activate oksleep
 cd backend
 uvicorn app.main:app --reload --port 8000
 ```
 
-The DB (`data/sleepflow.db`) and seed data (23:30 / 07:30, music+story preferences) are created automatically.
+The DB (`data/oksleep.db`) and seed data (23:30 / 07:30, music+story preferences) are created automatically.
 Interactive API docs: <http://127.0.0.1:8000/docs>
 
 **Terminal 2 — Vite frontend :5173**
@@ -135,11 +135,11 @@ under `frontend/public/videos/` (fallback placeholders are shown when missing).
 Copy `.env.example` to `.env` at the repo root. Defaults to demo mode:
 
 ```env
-SLEEPFLOW_LLM_MODE=demo                     # demo = Mock copy, no key needed
-SLEEPFLOW_LLM_MODE=live                     # enable real OpenAI-compatible LLM
-SLEEPFLOW_OPENAI_BASE_URL=https://api.deepseek.com/v1
-SLEEPFLOW_OPENAI_API_KEY=sk-xxxx
-SLEEPFLOW_LLM_MODEL=deepseek-chat
+OKSLEEP_LLM_MODE=demo                     # demo = Mock copy, no key needed
+OKSLEEP_LLM_MODE=live                     # enable real OpenAI-compatible LLM
+OKSLEEP_OPENAI_BASE_URL=https://api.deepseek.com/v1
+OKSLEEP_OPENAI_API_KEY=sk-xxxx
+OKSLEEP_LLM_MODEL=deepseek-chat
 ```
 
 Rules: LLM output must pass schema validation; any timeout / bad format falls back to Mock so the demo never breaks.
@@ -156,7 +156,7 @@ cd frontend && npm run build                     # tsc strict + vite build
 ## 4. Project Structure
 
 ```text
-sleepflow/
+oksleep/
 ├── README.md                 # this file (English, default)
 ├── README.zh-CN.md           # 中文说明
 ├── .env.example
@@ -184,7 +184,7 @@ sleepflow/
 │   │   └── App.tsx           # screen router driven by backend session state
 │   ├── public/videos/        # local demo videos: tiktok.mp4 (TikTok-like), sleep.mp4 (health)
 │   └── package.json
-└── data/                     # sleepflow.db (auto-created at runtime)
+└── data/                     # oksleep.db (auto-created at runtime)
 ```
 
 ---

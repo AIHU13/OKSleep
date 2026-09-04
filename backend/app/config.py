@@ -5,28 +5,28 @@ from pathlib import Path
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-# 仓库根目录：backend/app/config.py -> sleepflow/
+# 仓库根目录：backend/app/config.py -> oksleep/
 ROOT_DIR = Path(__file__).resolve().parents[2]
 DATA_DIR = ROOT_DIR / "data"
-DEFAULT_DB_PATH = DATA_DIR / "sleepflow.db"
+DEFAULT_DB_PATH = DATA_DIR / "oksleep.db"
 
 
 class Settings(BaseSettings):
     """应用配置。
 
-    环境变量前缀 SLEEPFLOW_，例如 SLEEPFLOW_LLM_MODE=demo。
+    环境变量前缀 OKSLEEP_，例如 OKSLEEP_LLM_MODE=demo。
     文件位于仓库根目录 .env。
     """
 
     model_config = SettingsConfigDict(
-        env_prefix="SLEEPFLOW_",
+        env_prefix="OKSLEEP_",
         env_file=str(ROOT_DIR / ".env"),
         env_file_encoding="utf-8",
         extra="ignore",
     )
 
     # ---- 运行 ----
-    app_name: str = "SleepFlow"
+    app_name: str = "OKSleep"
     llm_mode: str = "demo"  # demo | live
     backend_port: int = 8000
 

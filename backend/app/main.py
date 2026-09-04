@@ -1,6 +1,6 @@
-"""SleepFlow FastAPI 应用入口。
+"""OKSleep FastAPI 应用入口。
 
-启动前会自动初始化 SQLite（data/sleepflow.db）与种子数据。
+启动前会自动初始化 SQLite（data/oksleep.db）与种子数据。
 RuleError 统一转换为带 code/message 的 HTTP 响应。
 """
 from __future__ import annotations
@@ -27,7 +27,7 @@ from .db.init_db import init_db
 from .services.errors import RuleError
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
-logger = logging.getLogger("sleepflow")
+logger = logging.getLogger("oksleep")
 
 
 @asynccontextmanager
@@ -43,7 +43,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="SleepFlow API",
+    title="OKSleep API",
     description="睡前 30 分钟智能助眠 Agent（MVP / Demo）",
     version="0.1.0",
     lifespan=lifespan,

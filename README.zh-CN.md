@@ -1,8 +1,8 @@
-# SleepFlow · 睡前 30 分钟智能助眠 Agent（MVP / Demo）
+# OKSleep · 睡前 30 分钟智能助眠 Agent（MVP / Demo）
 
-<img align="left" src="docs/media/cover-home.png" width="220" alt="SleepFlow 首页" />
+<img align="left" src="docs/media/cover-home.png" width="220" alt="OKSleep 首页" />
 
-**健康作息，从这开始 —— SleepFlow 陪你把「再刷一条」变成「晚安」。**
+**健康作息，从这开始 —— OKSleep 陪你把「再刷一条」变成「晚安」。**
 
 面向年轻用户的睡前助眠 Agent：在你目标入睡前的 **30 分钟窗口** 主动介入，用
 **循循善诱 + 分阶段干预 + 奖励闭环** 帮你完成「继续刷手机/工作 → 准备休息 → 进入睡眠」的切换；
@@ -22,7 +22,7 @@
 
 ### 产品功能
 
-| 环节 | SleepFlow 做什么 |
+| 环节 | OKSleep 做什么 |
 | --- | --- |
 | 🧭 **作息与首次配置** | 首次启动引导：入睡/起床时间 + 深夜计划草稿（可一键示例） |
 | 📱 **手机场景模拟** | 全屏手机拟真「抖音」页面（本地 tiktok.mp4 循环播放），含系统权限声明（通知 / 媒体控制 / 后台监测） |
@@ -49,10 +49,10 @@
 下方为**自动循环播放的 GIF 预览**，内嵌于页面、打开即可直接观看（无需点击播放）。
 它截取自完整演示视频 `docs/media/demo.mp4`（已压缩至约 2 MB，49 秒）；
 需要高清完整版本时，点击链接在 GitHub 原生播放器中打开：
-[**`docs/media/demo.mp4`**](https://github.com/AIHU13/SleepFlow/blob/main/docs/media/demo.mp4)。
+[**`docs/media/demo.mp4`**](https://github.com/AIHU13/OKSleep/blob/main/docs/media/demo.mp4)。
 
 <p align="center">
-  <a href="https://github.com/AIHU13/SleepFlow/blob/main/docs/media/demo.mp4"><img src="docs/media/demo-preview.gif" width="246" alt="演示视频（自动播放预览）" title="点击打开完整 demo.mp4" /></a>
+  <a href="https://github.com/AIHU13/OKSleep/blob/main/docs/media/demo.mp4"><img src="docs/media/demo-preview.gif" width="246" alt="演示视频（自动播放预览）" title="点击打开完整 demo.mp4" /></a>
   <img src="docs/media/screens-home.png" width="246" alt="首页" />
   <img src="docs/media/screens-deepnight.png" width="246" alt="深夜计划" />
 </p>
@@ -66,14 +66,14 @@
 
 | 依赖 | 版本 | 说明 |
 | --- | --- | --- |
-| Python | 3.11 | 已为本项目创建专属 conda 环境 `sleepflow` |
+| Python | 3.11 | 已为本项目创建专属 conda 环境 `oksleep` |
 | Node.js | ≥ 18（实测 24） | 前端构建与运行 |
 | npm | ≥ 10 | Windows 请用 `npm.cmd`（系统禁用 .ps1） |
 
 ```bash
 # 1) 后端依赖（新机器先创建环境）
-conda create -n sleepflow python=3.11 -y
-conda activate sleepflow
+conda create -n oksleep python=3.11 -y
+conda activate oksleep
 pip install -r backend/requirements.txt
 
 # 2) 前端依赖
@@ -86,7 +86,7 @@ npm install
 **终端 1：后端 FastAPI（端口 8000）**
 
 ```bash
-conda activate sleepflow
+conda activate oksleep
 cd backend
 uvicorn app.main:app --reload --port 8000
 ```
@@ -119,11 +119,11 @@ Home（目标 23:30）→ 开始助眠 → 选择 刷短视频 / 仍在工作 / 
 复制 `.env.example` 为 `.env`（仓库根目录）。默认 demo 模式：
 
 ```env
-SLEEPFLOW_LLM_MODE=demo                     # demo=Mock 文案，无需任何 Key
-SLEEPFLOW_LLM_MODE=live                     # 启用真实 OpenAI 兼容 LLM
-SLEEPFLOW_OPENAI_BASE_URL=https://api.deepseek.com/v1
-SLEEPFLOW_OPENAI_API_KEY=sk-xxxx
-SLEEPFLOW_LLM_MODEL=deepseek-chat
+OKSLEEP_LLM_MODE=demo                     # demo=Mock 文案，无需任何 Key
+OKSLEEP_LLM_MODE=live                     # 启用真实 OpenAI 兼容 LLM
+OKSLEEP_OPENAI_BASE_URL=https://api.deepseek.com/v1
+OKSLEEP_OPENAI_API_KEY=sk-xxxx
+OKSLEEP_LLM_MODEL=deepseek-chat
 ```
 
 规则：LLM 输出必须过 Schema 校验；超时/格式错误自动回退 Mock，Demo 永不中断。
@@ -140,7 +140,7 @@ cd frontend && npm run build                # tsc 严格 + vite build
 ## 4. 项目结构
 
 ```text
-sleepflow/
+oksleep/
 ├── README.md                 # 英文说明（默认，适合推送 GitHub）
 ├── README.zh-CN.md           # 中文说明（本文件）
 ├── .env.example
@@ -168,7 +168,7 @@ sleepflow/
 │   │   └── App.tsx           # 由后端 Session 驱动的页面编排
 │   ├── public/videos/        # 本地演示视频：tiktok.mp4（抖音样片）、sleep.mp4（健康助眠）
 │   └── package.json
-└── data/                     # sleepflow.db（运行时自动创建）
+└── data/                     # oksleep.db（运行时自动创建）
 ```
 
 ---
