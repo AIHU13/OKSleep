@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# 环境变量（含 API Key，禁止入库）
+.env
+
+# Node
+node_modules/
+dist/
+*.local
+
+# 数据文件（演示生成的本地库）
+data/*.db
+data/*.db-journal
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
+
+# 本地演示视频（体积大，不入库；放入后本地即可播放）
+frontend/public/videos/*.mp4
+
+# 构建/生成产物（tsc -b 生成）
+frontend/*.tsbuildinfo
+frontend/vite.config.js
+frontend/vite.config.d.ts
+
+# 本地项目文档（若需公开请移入 docs 并调整）
+保密-项目开发文档/
+
