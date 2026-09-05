@@ -230,6 +230,64 @@ Browser (React UI) → REST → FastAPI → Session Service / Rule Engine / SQLi
 - Refresh-safe: session restored from backend; history incl. missed-sleep records persists
 - LLM live personalization works when a key is configured; demo runs flawlessly without it
 
+## 6. Sharing a Public Demo Link (Remote Access)
+
+The frontend build is served by FastAPI itself (single port), so you can share one URL with the whole app.
+
+### Run the single-port server
+
+```bash
+# 0) Build the frontend first
+cd frontend && npm run build
+
+# 1) Start from the backend directory (env prefix OKSLEEP_)
+cd backend
+conda activate sleepflow        # or your oksleep env
+$env:OKSLEEP_LLM_MODE="demo"    # demo = Mock copy; never expose a live LLM key
+
+# Mode A — default: open access + shared persistent state (all visitors see the same data)
+python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+# Mode B — password gate (401 without credential; Basic Auth or ?token=)
+$env:OKSLEEP_DEMO_PASSWORD="your-password"
+python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+# Mode C — auto-reset for every new visitor (each session starts pristine)
+$env:OKSLEEP_PUBLIC_DEMO="1"
+python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+```
+
+Access behaviors:
+- **Mode A**: no auth. Anyone who has the link can modify the shared demo data (including "Reset Demo").
+- **Mode B**: 401 unless the request carries Basic Auth (`demo:<password>`) or `?token=<password>`.
+  Browsers show a login prompt; scripts can use `curl -u demo:<password>`.
+- **Mode C**: an auto-reset middleware clears leftover demo records for every new visitor without an
+  active session — useful for a "always clean" kiosk, but changes do not persist between visitors.
+
+API docs (`/docs`, `/openapi.json`) are blocked for non-local requests; force demo mode and keep any
+OpenAI/DeepSeek key out of the public instance.
+
+### Generate an external URL
+
+| Way | Command | Notes |
+| --- | --- | --- |
+| Cloudflare Quick Tunnel (free, temp) | `tools\cloudflared.exe tunnel --url http://127.0.0.1:8000 --no-autoupdate` | parse `https://xxx.trycloudflare.com` from the logs; set `HTTP_PROXY`/`HTTPS_PROXY` first if the host needs a proxy |
+| ngrok | `ngrok http 8000` | needs an ngrok authtoken |
+| LAN only | open `http://<your-LAN-IP>:8000` | same network only |
+
+Quick Tunnel URLs are **random and temporary**: they change on every restart and die when the tunnel
+process stops. For long-lived links use a Cloudflare **named tunnel** (own domain) or deploy to a public
+server with Nginx/systemd.
+
+### Stop the services
+
+```powershell
+# backend on :8000
+Get-NetTCPConnection -LocalPort 8000 -State Listen | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force }
+# tunnel
+taskkill /IM cloudflared.exe /F
+```
+
 ### License
 
 This project's code is open-sourced under the **MIT License**, while the author reserves all rights for

@@ -213,6 +213,62 @@ Browser（React UI）→ REST → FastAPI → Session Service / Rule Engine / SQ
 - 刷新页面 Session 由后端恢复不丢失；历史（含助眠失败记录）可持久化
 - 配置 Key 后 LLM 可实时个性化；未配置 Key 时 Demo 仍完整运行
 
+## 6. 对外分享与公网演示
+
+前端产物由 FastAPI 同源托管（单端口），可把整个应用用一个链接对外分享。
+
+### 单端口启动
+
+```bash
+# 0) 先构建前端
+cd frontend && npm run build
+
+# 1) 在 backend 目录启动（环境变量前缀 OKSLEEP_）
+cd backend
+conda activate sleepflow          # 或你新建的 oksleep 环境
+$env:OKSLEEP_LLM_MODE="demo"      # demo = Mock 文案；公开实例绝不配置真实 LLM Key
+
+# 模式A —— 默认：无口令 + 共享持久状态（所有访客看到同一份数据）
+python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+# 模式B —— 口令门禁（无凭据一律 401；支持 Basic Auth 或 ?token=）
+$env:OKSLEEP_DEMO_PASSWORD="你的口令"
+python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+# 模式C —— 每位新访客自动重置（每次会话都从初始状态开始）
+$env:OKSLEEP_PUBLIC_DEMO="1"
+python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+```
+
+访问行为说明：
+- **模式A**：无需口令。拿到链接者即可修改共享演示数据（含「重置 Demo」）。
+- **模式B**：请求未携带 Basic Auth（`demo:<口令>`）或 `?token=<口令>` 一律 401；
+  浏览器会弹窗输入，脚本可用 `curl -u demo:<口令>`。
+- **模式C**：新访客（无进行中会话）进入时自动清空遗留演示记录，适合“每次干净”的展台演示，
+  但访客间的改动不会保留。
+
+对外实例的 `/docs`、`/openapi.json` 等接口文档一律 403；请保持 demo 模式，勿暴露任何 LLM Key。
+
+### 生成外部访问链接
+
+| 方式 | 指令 | 说明 |
+| --- | --- | --- |
+| Cloudflare Quick Tunnel（免费、临时） | `tools\cloudflared.exe tunnel --url http://127.0.0.1:8000 --no-autoupdate` | 从日志中复制 `https://xxx.trycloudflare.com`；本机需代理出网时先设置 `HTTP_PROXY`/`HTTPS_PROXY` |
+| ngrok | `ngrok http 8000` | 需要 ngrok authtoken |
+| 局域网 | 打开 `http://<本机局域网IP>:8000` | 仅同网段可访问 |
+
+Quick Tunnel 链接**随机且临时**：重启即更换，进程停止即失效。
+需要稳定长期链接时，请使用 Cloudflare **命名隧道**（自有域名）或部署到公网服务器（Nginx + systemd）。
+
+### 停止服务
+
+```powershell
+# 停止后端（8000）
+Get-NetTCPConnection -LocalPort 8000 -State Listen | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force }
+# 停止隧道
+taskkill /IM cloudflared.exe /F
+```
+
 ### 许可声明
 
 本项目代码基于 **MIT 协议开源**，作者同时保留**商业闭源版本的全部权利**。
